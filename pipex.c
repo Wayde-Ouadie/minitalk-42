@@ -6,8 +6,18 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 20:25:00 by oel-feng          #+#    #+#             */
-/*   Updated: 2023/12/17 20:30:07 by oel-feng         ###   ########.fr       */
+/*   Updated: 2023/12/17 20:38:51 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+char	*finding_path(char **envp)
+{
+	return (NULL);
+}
+
+int	main(int argc, char	*argv[], char *envp[])
+{
+	return (0);	
+}
