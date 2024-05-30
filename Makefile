@@ -1,5 +1,5 @@
 SRC = pipex.c pipex_utils.c
-SRC_BNS = 
+SRC_BNS = pipex_bonus.c pipex_bonus_utils.c
 OBJ = ${SRC:.c=.o}
 OBJ_BNS = ${SRC_BNS:.c=.o}
 NAME = pipex
