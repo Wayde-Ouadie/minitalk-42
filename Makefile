@@ -1,31 +1,19 @@
-SRC = pipex.c pipex_utils.c
-SRC_BNS = pipex_bonus.c pipex_bonus_utils.c
-OBJ = ${SRC:.c=.o}
-OBJ_BNS = ${SRC_BNS:.c=.o}
-NAME = pipex
-NAME_BNS = pipex_bonus
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Wayde <Wayde@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/06 04:21:40 by Wayde             #+#    #+#              #
+#    Updated: 2024/07/06 04:23:36 by Wayde            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SERVER = server
+CLIENT = client
+SERVER_BNS = server_bonus
+CLIENT_BNS = client_bonus
 CC = cc
 RM = rm -f
 FLAG = -Wall -Wextra -Werror
-
-all: ${NAME}
-
-mandatory/%.o: mandatory/%.c mandatory/pipex.h
-	@${CC} ${FLAG} -c $< -o $@
-
-bonus/%.o: bonus/%.c bonus/pipex_bonus.h
-	@${CC} ${FLAG} -c $< -o $@
-
-${NAME}: ${OBJ}
-	@${CC} ${FLAG} $^ -o ${NAME}
-
-bonus: ${OBJ_BNS}
-	@${CC} ${FLAG} ${OBJ_BNS} -o ${NAME_BNS}
-
-clean:
-	@${RM} ${OBJ} ${OBJ_BNS}
-
-fclean: clean
-	@${RM} ${NAME} ${NAME_BNS}
-
-re: fclean all
