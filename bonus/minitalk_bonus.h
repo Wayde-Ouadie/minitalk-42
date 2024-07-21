@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk_bonus.c                                   :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 04:13:10 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/06 04:14:09 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/21 03:16:17 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <stdarg.h>
+# include <unistd.h>
 
+int		ft_printf(const char *format, ...);
 #endif
