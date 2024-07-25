@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_fprintf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -63,7 +63,7 @@ static void	ft_recognition(va_list args, const char format, int *size)
 		ft_putchar(format, size);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_fprintf(const char *format, ...)
 {
 	int		size;
 	int		i;
