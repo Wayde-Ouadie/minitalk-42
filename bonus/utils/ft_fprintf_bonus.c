@@ -12,64 +12,64 @@
 
 #include "../minitalk_bonus.h"
 
-static void	ft_putchar(char c, int *size)
+static void	ft_putchar(char c, int *size, int fd)
 {
 	(*size)++;
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
-static void	ft_putnbr(int nbr, int *size)
+static void	ft_putnbr(int nbr, int *size, int fd)
 {
 	long	n;
 
 	n = nbr;
 	if (n < 0)
 	{
-		ft_putchar('-', size);
+		ft_putchar('-', size, fd);
 		n *= -1;
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10, size);
-		ft_putchar((n % 10) + 48, size);
+		ft_putnbr(n / 10, size, fd);
+		ft_putchar((n % 10) + 48, size, fd);
 	}
 	else
-		ft_putchar(n + 48, size);
+		ft_putchar(n + 48, size, fd);
 }
 
-static void	ft_putstr(char *str, int *size)
+static void	ft_putstr(char *str, int *size, int fd)
 {
 	int	i;
 
 	i = 0;
 	if (!str)
 	{
-		ft_putstr("(null)", size);
+		ft_putstr("(null)", size, fd);
 		return ;
 	}
 	while (str[i])
-		ft_putchar(str[i++], size);
+		ft_putchar(str[i++], size, fd);
 }
 
-static void	ft_recognition(va_list args, const char format, int *size)
+static void	ft_recognition(va_list args, const char format, int *size, int fd)
 {
 	if (format == 'c')
-		ft_putchar(va_arg(args, int), size);
+		ft_putchar(va_arg(args, int), size, fd);
 	else if (format == 's')
-		ft_putstr(va_arg(args, char *), size);
+		ft_putstr(va_arg(args, char *), size, fd);
 	else if (format == 'd' || format == 'i')
-		ft_putnbr(va_arg(args, int), size);
+		ft_putnbr(va_arg(args, int), size, fd);
 	else
-		ft_putchar(format, size);
+		ft_putchar(format, size, fd);
 }
 
-int	ft_fprintf(const char *format, ...)
+int	ft_fprintf(int fd, const char *format, ...)
 {
 	int		size;
 	int		i;
 	va_list	args;
 
-	if (write(1, "", 0) == -1)
+	if (write(fd, "", 0) == -1)
 		return (-1);
 	size = 0;
 	i = 0;
@@ -81,10 +81,10 @@ int	ft_fprintf(const char *format, ...)
 			i++;
 			if (format[i] == '\0')
 				break ;
-			ft_recognition(args, format[i], &size);
+			ft_recognition(args, format[i], &size, fd);
 		}
 		else
-			ft_putchar(format[i], &size);
+			ft_putchar(format[i], &size, fd);
 		i++;
 	}
 	va_end(args);

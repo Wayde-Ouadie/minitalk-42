@@ -6,7 +6,7 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:35:44 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/25 19:51:36 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/26 06:55:24 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int     ft_atoi(char *str);
-int	    ft_strlen(char *str);
-void    error_display(char *str);
-int     ft_fprintf(int fd, const char *format, ...);
+int		ft_atoi(char *str);
+int		ft_strlen(char *str);
+void	error_display(char *str);
+int		ft_fprintf(int fd, const char *format, ...);
 #endif
