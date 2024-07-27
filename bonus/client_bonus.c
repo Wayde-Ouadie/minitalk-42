@@ -6,7 +6,7 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:35:08 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/26 07:07:51 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:39:20 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,51 @@
 static void	parsing(char *str)
 {
 	int	i;
-	int	len;
 
 	i = -1;
-	len = ft_strlen(str);
 	while (str[++i])
 	{
 		if (i == 0 && (str[i] == '+' || str[i] == '-'))
-			error_display("Input number without sign.");
+			ft_fprintf(2, "Error: Input number without sign.");
 		else if (!(str[i] >= '0' && str[i] <= '9'))
-			error_display("Input valid number.");
+			ft_fprintf(2, "Error: Input valid number.");
 	}
 }
 
-static void	send_bits(int pid, char b)
+static int	ft_atoi(char *str)
+{
+	int	i;
+	int	tmp;
+	int	result;
+
+	i = 0;
+	result = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		tmp = result * 10 - (48 - str[i++]);
+		if (tmp < result)
+			ft_fprintf(2, "Error: Input valid number");
+		result = tmp;
+	}
+	return (result);
+}
+
+static void	msg_sender(int pid, char c)
 {
 	int	bit;
 
 	bit = 0;
 	while (bit < 8)
 	{
-		if (b & (1 << bit))
+		if (c & (1 << bit))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
 		bit++;
 		usleep(800);
 	}
-}
-
-static void	msg_sender(int pid, char *msg)
-{
-	int	i;
-
-	i = -1;
-	while (msg[++i])
-		send_bits(pid, msg[i]);
-	send_bits(pid, '\0');
 }
 
 static void	msg_received(int signal_num)
@@ -63,19 +71,27 @@ static void	msg_received(int signal_num)
 
 int	main(int ac, char **av)
 {
-	int		pid;
+	int	i;
+	int	pid;
 
 	if (ac == 3)
 	{
 		parsing(av[1]);
 		pid = ft_atoi(av[1]);
 		if (pid <= 0)
-			error_display("Input valid number.");
+			ft_fprintf(2, "Error: Input valid number.");
 		if (av[2][0] == '\0')
-			error_display("Empty message.");
+			ft_fprintf(2, "Error: Empty message.");
 		signal(SIGUSR1, msg_received);
-		msg_sender(pid, av[2]);
+		i = -1;
+		while (av[2][++i])
+			msg_sender(pid, av[2][i]);
+		msg_sender(pid, '\n');
+		msg_sender(pid, '\0');
 	}
 	else
-		ft_fprintf(2, "Incorrect numbers of arguments.");
+	{
+		ft_fprintf(2, "Error: Incorrect numbers of arguments.\n");
+		ft_fprintf(2, "Example: ./client PID MESSAGE");
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:35:51 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/26 06:56:28 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:41:10 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	msg_receiver(int signal_num, siginfo_t *info, void *context)
 {
-	static int		bit;
-	static char		c;
-	static int		pid;
+	static char	c;
+	static int	bit;
+	static int	pid;
 
 	(void)context;
 	if (!pid || pid != info->si_pid)
@@ -55,6 +55,6 @@ int	main(int ac, char **av)
 			pause();
 	}
 	else
-		error_display("No arguments Needed. Example use: ./server");
+		ft_fprintf(2, "Error: No arguments needed");
 	exit(EXIT_SUCCESS);
 }

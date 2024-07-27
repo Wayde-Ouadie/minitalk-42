@@ -6,11 +6,11 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 07:07:55 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/26 07:07:58 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:30:59 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk_bonus.h"
+#include "minitalk_bonus.h"
 
 static void	ft_putchar(char c, int *size, int fd)
 {
