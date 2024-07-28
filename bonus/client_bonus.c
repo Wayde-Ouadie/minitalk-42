@@ -6,7 +6,7 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:35:08 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/26 14:39:20 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:46:22 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	parsing(char *str)
 	while (str[++i])
 	{
 		if (i == 0 && (str[i] == '+' || str[i] == '-'))
-			ft_fprintf(2, "Error: Input number without sign.");
+			error("Error: Input number without sign.");
 		else if (!(str[i] >= '0' && str[i] <= '9'))
-			ft_fprintf(2, "Error: Input valid number.");
+			error("Error: Input valid number.");
 	}
 }
 
@@ -40,7 +40,7 @@ static int	ft_atoi(char *str)
 	{
 		tmp = result * 10 - (48 - str[i++]);
 		if (tmp < result)
-			ft_fprintf(2, "Error: Input valid number");
+			error("Error: Input valid number");
 		result = tmp;
 	}
 	return (result);
@@ -79,9 +79,9 @@ int	main(int ac, char **av)
 		parsing(av[1]);
 		pid = ft_atoi(av[1]);
 		if (pid <= 0)
-			ft_fprintf(2, "Error: Input valid number.");
+			error("Error: Input valid number.");
 		if (av[2][0] == '\0')
-			ft_fprintf(2, "Error: Empty message.");
+			error("Error: Empty message.");
 		signal(SIGUSR1, msg_received);
 		i = -1;
 		while (av[2][++i])
@@ -91,7 +91,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		ft_fprintf(2, "Error: Incorrect numbers of arguments.\n");
-		ft_fprintf(2, "Example: ./client PID MESSAGE");
+		error("Error: Incorrect numbers of arguments.\n");
+		error("Example: ./client PID MESSAGE");
 	}
 }

@@ -6,15 +6,15 @@
 #    By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/25 15:35:59 by oel-feng          #+#    #+#              #
-#    Updated: 2024/07/26 14:30:41 by oel-feng         ###   ########.fr        #
+#    Updated: 2024/07/28 10:45:53 by oel-feng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_SERVER = mandatory/ft_fprintf.c mandatory/server.c
-SRC_CLIENT = mandatory/ft_fprintf.c mandatory/client.c
+SRC_SERVER = mandatory/ft_fprintf.c mandatory/error.c mandatory/server.c
+SRC_CLIENT = mandatory/ft_fprintf.c mandatory/error.c mandatory/client.c
 
-SRC_BNS_SERVER = bonus/ft_fprintf_bonus.c bonus/server_bonus.c
-SRC_BNS_CLIENT = bonus/ft_fprintf_bonus.c bonus/client_bonus.c
+SRC_BNS_SERVER = bonus/ft_fprintf_bonus.c bonus/error_bonus.c bonus/server_bonus.c
+SRC_BNS_CLIENT = bonus/ft_fprintf_bonus.c bonus/error_bonus.c bonus/client_bonus.c
 
 OBJ_SERVER = ${SRC_SERVER:.c=.o}
 OBJ_CLIENT = ${SRC_CLIENT:.c=.o}

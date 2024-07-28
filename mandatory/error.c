@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 15:35:13 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/28 10:44:54 by oel-feng         ###   ########.fr       */
+/*   Created: 2024/07/28 10:41:21 by oel-feng          #+#    #+#             */
+/*   Updated: 2024/07/28 10:42:20 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_BONUS_H
-# define MINITALK_BONUS_H
+#include "minitalk.h"
 
-# include <signal.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-void    error(char *err_msg);
-int		ft_fprintf(int fd, const char *format, ...);
-#endif
+void	error(char *err_msg)
+{
+	ft_fprintf(2, err_msg);
+	exit(EXIT_FAILURE);
+}

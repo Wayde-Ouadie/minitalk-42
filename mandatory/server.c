@@ -6,7 +6,7 @@
 /*   By: oel-feng <oel-feng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:35:51 by oel-feng          #+#    #+#             */
-/*   Updated: 2024/07/26 14:41:10 by oel-feng         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:47:34 by oel-feng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int	main(int ac, char **av)
 			pause();
 	}
 	else
-		ft_fprintf(2, "Error: No arguments needed");
+		error("Error: No arguments needed");
 	exit(EXIT_SUCCESS);
 }
