@@ -1,8 +1,5 @@
 # 42cursus - minitalk
 
-![](https://github.com/hanshazairi/42-minitalk/workflows/norminette/badge.svg)
-![](https://github.com/hanshazairi/42-minitalk/workflows/build/badge.svg)
-![](https://img.shields.io/tokei/lines/github/hanshazairi/42-minitalk?style=plastic?color=blue)
 
 ## Project Information
 
@@ -38,5 +35,5 @@ The purpose of this project is to code a small data exchange program using *UNIX
 
 ## Compilation
 
-1. Clone repo including [`libft`](../../../42-libft) submodule via `git clone --recursive https://github.com/hanshazairi/42-minitalk.git`.
-2. Compile files into `server` & `client` executables via `make -C 42-minitalk`.
+1. Clone repo via `git clone https://github.com/hanshazairi/42-minitalk.git`.
+2. Compile files into `server` & `client` executables via `make`.
